@@ -7,7 +7,7 @@ from tmtpl.constants import *
 from tmtpl.pattern import *
 from tmtpl.document import *
 from tmtpl.client import Client
-from tmtpl.curves import GetCurveControlPoints,  myGetControlPoints
+from tmtpl.curves import GetCurveControlPoints
 
 #Project specific
 #from math import sin, cos, radians
@@ -141,7 +141,7 @@ class PatternDesign():
 		if (FRONT_NORMAL_WAIST):
 			cAS3b=cPointP(A, 'cAS3b', pntOffLineP(AS3, AS4, (lineLengthP(AS3, AS1)/2.0))) # b/w AS1 & AS3
 			pnts=pointList(AW5, AS1, AS3)
-			c1, c2=myGetControlPoints('FrontSideSeam', pnts)
+			c1, c2=controlPoints('FrontSideSeam', pnts)
 			cAS1a=cPoint(A, 'cAS1a', c1[0].x, c1[0].y) #b/w AW5 & AS2
 			cAS1b=cPoint(A, 'cAS1b', AS1.x, c2[0].y) #b/w AW5 & AS1
 			cAS3a=cPoint(A, 'cAS3a', AS1.x, c1[1].y) #b/w AS1 & AW5
@@ -149,7 +149,7 @@ class PatternDesign():
 			cAS2a=cPoint(A, 'cAS2a', min(AS2.x, AW5.x), AW5.y+(lineLengthP(AW5, AS2)/3.0)) # waistline slightly less than hipline (ex: 1.25") use AS2 else AW5
 			cAS3b=cPointP(A, 'cAS3b', pntOffLineP(AS3, AS4, (lineLengthP(AS2, AS3)/3.0))) # b/w AS2 & AS3
 			pnts=pointList(cAS2a, AS2, cAS3b)
-			c1, c2=myGetControlPoints('BackSideSeam', pnts)
+			c1, c2=controlPoints('BackSideSeam', pnts)
 			cAS2b=cPoint(A, 'cAS2b', c2[0].x, c2[0].y) #b/w AW5 & AS2
 			cAS3a=cPoint(A, 'cAS3a', c1[1].x, c1[1].y) #b/w AS2 & AS3
 
@@ -172,7 +172,7 @@ class PatternDesign():
 			# straight line for upper front center seam, control points for AC1 & AC2 only, with calculated control point cAC2b to smooth into straight line
 			cAC2b=cPointP(A, 'cAC2b', pntOffLine(AC2.x, AC2.y, AW1.x, AW1.y, (lineLengthP(AC1, AC2)/2.0)))
 			pnts=pointList(AI3, AC1, cAC2b)
-			c1, c2=myGetControlPoints('FrontCenterSeam', pnts)
+			c1, c2=controlPoints('FrontCenterSeam', pnts)
 			cAC1a=cPoint(A, 'cAC1a', c1[0].x, c1[0].y) #b/w AI3 & AC1
 			cAC1b=cPoint(A, 'cAC1b', c2[0].x, c2[0].y) #b/w AI3 & AC1
 			cAC2a=cPoint(A, 'cAC2a', c1[1].x, c1[1].y) #b/w AC1 & AC2
@@ -326,7 +326,7 @@ class PatternDesign():
 		cBWOa=cPointP(B, 'cBWOa', pntOnLineP(BDartOutside, cBWOb, distance))
 		# Outside control points
 		pnts=pointList(BWaistOutside, BHipOutside, BRiseOutside, BKneeOutside)
-		c1, c2=myGetControlPoints('OutsideSeam', pnts)
+		c1, c2=controlPoints('OutsideSeam', pnts)
 		cBHOa=cPointP(B, 'cBHOa', c1[0])
 		cBHOb=cPointP(B, 'cBHOb', c2[0])
 		cBROa=cPointP(B, 'cBROa', c1[1])
