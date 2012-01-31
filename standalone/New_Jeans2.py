@@ -239,8 +239,8 @@ class PatternDesign():
 		# add grainline, dart, seamline & cuttingline paths to pattern
 		A.add(grainLinePath("grainLine", "pants Front Grainline", AG1, AG2))
 		A.add(Path('reference','grid', 'pants Front Gridline', Agrid, 'gridline_style'))
-		A.add(Path('pattern', 'dartline', 'pants Front Dartline', d, 'dart_style'))
-		A.add(Path('pattern', 'seamLine', 'pants Front Seamline', s, 'seamline_path_style'))
+		A.add(Path('pattern', 'dartline', 'pants Front Dartline', d, 'dartline_style'))
+		A.add(Path('pattern', 'seamLine', 'pants Front Seamline', s, 'seamline_style'))
 		A.add(Path('pattern', 'cuttingLine', 'pants Front Cuttingline', c, 'cuttingline_style'))
 
 		# pants Back 'B'
@@ -399,8 +399,8 @@ class PatternDesign():
 		# add grid, dart, grainline, seamline & cuttingline paths to pattern
 		B.add(grainLinePath('grainLine', 'pants Back Grainline', BGrainline1, BGrainline2))
 		B.add(Path('reference','Bgrid', 'Trousers Back Gridline', Bgrid, 'gridline_style'))
-		B.add(Path('pattern', 'dartline', 'pants Back Dartline', d, 'dart_style'))
-		B.add(Path('pattern', 'seamLine', 'pants Back Seamline', s, 'seamline_path_style'))
+		B.add(Path('pattern', 'dartline', 'pants Back Dartline', d, 'dartline_style'))
+		B.add(Path('pattern', 'seamLine', 'pants Back Seamline', s, 'seamline_style'))
 		B.add(Path('pattern', 'cuttingLine', 'pants Back Cuttingline', c, 'cuttingline_style'))
 
 
